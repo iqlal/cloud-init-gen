@@ -6,7 +6,7 @@ export const useCloudConfig = () => {
         package_update: true,
         package_upgrade: true,
         packages: [],
-        users: [{ name: 'user', groups: 'sudo', shell: '/bin/bash', ssh_authorized_keys: [] }],
+        users: [{ name: 'user', groups: 'sudo', shell: '/bin/bash', ssh_authorized_keys: [], plain_passwd: '' }],
         write_files: [],
         runcmd: []
     });
@@ -25,7 +25,7 @@ export const useCloudConfig = () => {
     const addUser = () => {
         setConfig(prev => ({
             ...prev,
-            users: [...prev.users, { name: '', groups: 'sudo', shell: '/bin/bash', ssh_authorized_keys: [] }]
+            users: [...prev.users, { name: '', groups: 'sudo', shell: '/bin/bash', ssh_authorized_keys: [], plain_passwd: '' }]
         }));
     };
 
@@ -103,6 +103,7 @@ export const useCloudConfig = () => {
                 yaml += `  - name: ${u.name}\n`;
                 if (u.groups) yaml += `    groups: ${u.groups}\n`;
                 if (u.shell) yaml += `    shell: ${u.shell}\n`;
+                if (u.plain_passwd) yaml += `    plain_passwd: '${u.plain_passwd}'\n`;
                 yaml += `    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n`;
 
                 const validKeys = u.ssh_authorized_keys.filter(k => k && k.trim() !== '');

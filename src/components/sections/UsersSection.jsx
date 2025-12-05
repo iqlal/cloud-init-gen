@@ -1,4 +1,4 @@
-import { Plus, Trash2 } from 'lucide-react';
+import { Plus, Trash2, AlertCircle } from 'lucide-react';
 import { Card, Label, Input, TextArea, Button } from '../ui';
 
 export const UsersSection = ({ users, actions }) => (
@@ -37,6 +37,19 @@ export const UsersSection = ({ users, actions }) => (
                                     placeholder="sudo, docker"
                                 />
                             </div>
+                        </div>
+                        <div>
+                            <Label>Plain Password</Label>
+                            <div className="mb-2 p-3 bg-amber-50 border border-amber-200 rounded-md flex gap-2">
+                                <AlertCircle size={16} className="text-amber-600 flex-shrink-0 mt-0.5" />
+                                <p className="text-xs text-amber-800">Password will be stored as plain text in cloud-config. Use SSH keys when possible for better security.</p>
+                            </div>
+                            <Input
+                                type="password"
+                                value={user.plain_passwd || ''}
+                                onChange={(e) => actions.updateUser(idx, 'plain_passwd', e.target.value)}
+                                placeholder="user password (optional)"
+                            />
                         </div>
                         <div>
                             <Label>SSH Authorized Key (Public)</Label>

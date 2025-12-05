@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCloudConfig } from './hooks/useCloudConfig';
-import { Header, Sidebar, PreviewPanel } from './components/layout';
+import { Header, Sidebar, PreviewPanel, Footer } from './components/layout';
 import {
   GeneralSection,
   UsersSection,
@@ -71,6 +71,9 @@ export default function CloudInitGenerator() {
         />
 
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
