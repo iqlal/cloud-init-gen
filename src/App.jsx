@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Copy, Check, Plus, Trash2, FileText, User, Box, Terminal, Server, Settings, Code, X } from 'lucide-react';
+import { Copy, Check, Plus, Trash2, FileText, User, Box, Terminal, Server, Settings, Code, X, ExternalLink, BookOpen } from 'lucide-react';
 
 // --- UI Components ---
 
@@ -237,8 +237,8 @@ export default function CloudInitGenerator() {
     <button
       onClick={() => setActiveTab(id)}
       className={`w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md transition-all ${activeTab === id
-          ? 'bg-gray-100 text-black'
-          : 'text-gray-500 hover:text-black hover:bg-gray-50'
+        ? 'bg-gray-100 text-black'
+        : 'text-gray-500 hover:text-black hover:bg-gray-50'
         }`}
     >
       <Icon size={16} />
@@ -259,10 +259,17 @@ export default function CloudInitGenerator() {
             <span className="px-2 py-0.5 rounded-full bg-gray-100 border border-gray-200 text-[10px] text-gray-500 font-bold uppercase tracking-wider">Beta</span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="primary" size="sm" onClick={copyToClipboard} className="gap-2">
-              {copied ? <Check size={14} /> : <Copy size={14} />}
-              {copied ? 'Copied' : 'Copy Result'}
-            </Button>
+            {/* Updated Link to Documentation */}
+            <a
+              href="https://cloudinit.readthedocs.io/en/latest/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-50"
+            >
+              <BookOpen size={16} />
+              cloud-init docs
+              <ExternalLink size={12} className="opacity-40" />
+            </a>
           </div>
         </div>
       </header>
@@ -554,7 +561,13 @@ export default function CloudInitGenerator() {
                     <div className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                   </div>
                   <span className="text-xs text-gray-500 font-mono">user-data</span>
-                  <div className="w-10"></div> {/* Spacer for alignment */}
+                  <button
+                    onClick={copyToClipboard}
+                    className="text-gray-400 hover:text-white transition-colors"
+                    title="Copy Code"
+                  >
+                    {copied ? <Check size={14} /> : <Copy size={14} />}
+                  </button>
                 </div>
 
                 {/* Code Content */}
