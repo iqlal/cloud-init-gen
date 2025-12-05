@@ -18,7 +18,7 @@ export const Header = () => (
                     className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-md hover:bg-gray-50"
                 >
                     <BookOpen size={16} />
-                    Documentation
+                    cloud-init docs
                     <ExternalLink size={12} className="opacity-40" />
                 </a>
             </div>
