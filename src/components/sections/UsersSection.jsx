@@ -25,7 +25,7 @@ export const UsersSection = ({ users, actions }) => (
                                 <Label>Username</Label>
                                 <Input
                                     value={user.name}
-                                    onChange={(e) => actions.updateUser(idx, 'name', e.target.value)}
+                                    onChange={(e) => actions.updateUser(idx, 'name', e.target.value.replace(/\s/g, ''))}
                                     placeholder="ubuntu"
                                 />
                             </div>
@@ -33,7 +33,7 @@ export const UsersSection = ({ users, actions }) => (
                                 <Label>Groups</Label>
                                 <Input
                                     value={user.groups}
-                                    onChange={(e) => actions.updateUser(idx, 'groups', e.target.value)}
+                                    onChange={(e) => actions.updateUser(idx, 'groups', e.target.value.replace(/\s/g, ''))}
                                     placeholder="sudo, docker"
                                 />
                             </div>
@@ -47,7 +47,7 @@ export const UsersSection = ({ users, actions }) => (
                             <Input
                                 type="password"
                                 value={user.plain_passwd || ''}
-                                onChange={(e) => actions.updateUser(idx, 'plain_passwd', e.target.value)}
+                                onChange={(e) => actions.updateUser(idx, 'plain_passwd', e.target.value.replace(/\s/g, ''))}
                                 placeholder="user password (optional)"
                             />
                         </div>
