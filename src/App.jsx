@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useCloudConfig } from './hooks/useCloudConfig';
-import { Header, Sidebar, PreviewPanel, Footer } from './components/layout';
+import { Header, Sidebar, PreviewPanel, Footer, MobileOverlay } from './components/layout';
 import {
   GeneralSection,
   UsersSection,
@@ -32,6 +32,7 @@ export default function CloudInitGenerator() {
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-gray-900 font-sans selection:bg-black selection:text-white flex flex-col">
+      <MobileOverlay />
       {/* Header */}
       <Header />
 
