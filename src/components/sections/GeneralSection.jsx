@@ -9,7 +9,7 @@ export const GeneralSection = ({ config, updateConfig }) => (
                 <Input
                     placeholder="my-server-instance"
                     value={config.hostname}
-                    onChange={(e) => updateConfig('hostname', e.target.value)}
+                    onChange={(e) => updateConfig('hostname', e.target.value.replace(/\s/g, ''))}
                 />
                 <p className="mt-1.5 text-xs text-gray-500">The hostname that will be assigned to the instance.</p>
             </div>
