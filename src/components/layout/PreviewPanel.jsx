@@ -27,7 +27,7 @@ export const PreviewPanel = ({ yaml, copied, onCopy }) => {
 
                 <div className="relative group">
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-gray-200 to-gray-100 rounded-xl blur-sm opacity-50"></div>
-                    <div className="relative bg-[#0d0d0d] rounded-xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col h-[calc(100vh-140px)] max-h-[600px]">
+                    <div className="relative bg-[#0d0d0d] rounded-xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col min-h-[300px] max-h-[calc(100vh-140px)]">
                         <div className="flex items-center justify-between px-4 py-3 bg-[#1a1a1a] border-b border-gray-800 select-none">
                             <div className="flex gap-1.5">
                                 <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
@@ -54,7 +54,7 @@ export const PreviewPanel = ({ yaml, copied, onCopy }) => {
                         </div>
 
                         <div className="flex-1 overflow-auto p-4 scrollbar-thin scrollbar-thumb-gray-800 scrollbar-track-transparent">
-                            <pre className="font-mono text-sm leading-relaxed">
+                            <pre className="font-mono text-sm leading-relaxed break-words whitespace-pre-wrap overflow-x-hidden">
                                 <code className="language-yaml text-[#E1E4E8]">
                                     {yaml}
                                 </code>
